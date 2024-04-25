@@ -10,7 +10,7 @@ public class Main {
     apiExChange apiExChange = new apiExChange();
     CurrencyMapper currencyMapper = new CurrencyMapper();
     List<String> conversionHistory = new ArrayList<>();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM uuuu HH:mm:ss");
 
     while (true) {
       try {
@@ -40,7 +40,8 @@ public class Main {
         LocalDateTime now = LocalDateTime.now();
         String formattedDateTime = now.format(formatter);
 
-        String conversion = formattedDateTime + " " + valueCurrency + " " + fromCurrency + " to " +
+        String conversion = formattedDateTime + " You consulted the following currency conversions:" +
+          "\n" + valueCurrency + " " + fromCurrency + " to " +
           toCurrency + ": " + convertValue;
         conversionHistory.add(conversion);
 
